@@ -1,16 +1,10 @@
+<script setup>
+import { RouterView } from 'vue-router'
+</script>
 <template>
   <div id="app">
-    <Home />
+    
+    <RouterView />
   </div>
 </template>
 
-<script>
-import Home from './components/Home.vue';
-
-export default {
-  name: 'App',
-  components: {
-    Home
-  },
-};
-</script>

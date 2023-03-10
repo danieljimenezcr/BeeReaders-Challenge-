@@ -1,6 +1,8 @@
-import { createApp } from 'vue'
-import App from './App.vue'
-import axios from 'axios'
+import { createApp } from "vue";
+import App from "./App.vue";
+import axios from "axios";
+import router from './router';
+
 
 axios.defaults.baseURL = 'https://wookie.codesubmit.io/movies'
 axios.defaults.headers.common['Authorization'] = 'Bearer Wookie2021'
@@ -8,6 +10,7 @@ axios.defaults.headers.common['Authorization'] = 'Bearer Wookie2021'
 
 
 export default {
+  
   data() {
     return {
       moviesByCategory: []
@@ -35,6 +38,18 @@ export default {
       })
       .catch(error => console.log(error));
   }
+  
 };
 
-createApp(App).mount('#app')
+const app = createApp(App)
+
+app.use(router)
+
+app.mount('#app')
+
+// const app = Vue.createApp({})
+// // Make sure to _use_ the router instance to make the
+// // whole app router-aware.
+// app.use(router)
+
+// app.mount('#app')
